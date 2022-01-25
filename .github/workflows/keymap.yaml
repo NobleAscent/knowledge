@@ -1,4 +1,4 @@
-name: CI
+name: keymap
 
 on: [push]
 
@@ -9,15 +9,10 @@ jobs:
     
     steps:
     - uses: actions/checkout@master
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get -y install gcc unzip wget zip gcc-avr binutils-avr avr-libc dfu-programmer dfu-util gcc-arm-none-eabi binutils-arm-none-eabi libnewlib-arm-none-eabi
-    - name: Update QMK Firmware
+    - name: Setup QMK Firmware
       run: |
         git submodule update --init
-        ./qmk_firmware/util/qmk_install.sh
-        cd qmk_firmware && make git-submodule
+        cd qmk_firmware && qmk setup
     - name: Copy custom keymap definition
       run: cp -rp $(pwd)/crkbd3/keymap $(pwd)/qmk_firmware/keyboards/crkbd/keymaps/nobleascent
     - name: Build firmware for right hand
