@@ -22,8 +22,8 @@ jobs:
     - name: Build firmware for both hands
       run: |
         cd qmk_firmware
-        (timeout 1m qmk compile -kb crkbd -km nobleascent:avrdude-split-right ; exit 0)
-        (timeout 1m qmk compile -kb crkbd -km nobleascent:avrdude-split-left ; exit 0)
+        (timeout 1m qmk compile -kb crkbd -km nobleascent:avrdude-split-right; exit 0)
+        (timeout 1m qmk compile -kb crkbd -km nobleascent:avrdude-split-left; exit 0)
       
     - name: Upload artifact
       uses: actions/upload-artifact@master
