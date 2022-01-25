@@ -23,8 +23,8 @@ jobs:
       shell: bash
       run: |
         cd qmk_firmware
-        timeout 20s qmk compile -kb crkbd -km nobleascent:avrdude-split-right || [[ $? -eq 124 ]]
-        timeout 20s qmk compile -kb crkbd -km nobleascent:avrdude-split-left || [[ $? -eq 124 ]]
+        timeout 10s qmk compile -kb crkbd -km nobleascent:avrdude-split-right || [[ $? -eq 124 ]]
+        timeout 10s qmk compile -kb crkbd -km nobleascent:avrdude-split-left || [[ $? -eq 124 ]]
       
     - name: Upload artifact
       uses: actions/upload-artifact@master
