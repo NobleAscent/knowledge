@@ -12,7 +12,9 @@ jobs:
     - name: Setup QMK Firmware
       run: |
         git submodule update --init
-        cd qmk_firmware && qmk setup
+        cd qmk_firmware
+        make git-submodule
+        qmk setup
 
     - name: Copy custom keymap definition
       run: cp -rp $(pwd)/crkbd3/keymap $(pwd)/qmk_firmware/keyboards/crkbd/keymaps/nobleascent
