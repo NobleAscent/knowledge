@@ -17,8 +17,8 @@ jobs:
       run: |
         git submodule update --init
         cd qmk_firmware && make git-submodule
-    - name: Link custom keymap definition
-      run: ln -s $(pwd)/crkbd3/keymap $(pwd)/qmk_firmware/keyboards/crkbd/keymaps/nobleascent && cd qmk_firmware
+    - name: Copy custom keymap definition
+      run: cp $(pwd)/crkbd3/keymap $(pwd)/qmk_firmware/keyboards/crkbd/keymaps/nobleascent && cd qmk_firmware
     - name: Build firmware for right hand
       run:  make crkbd:nobleascent:avrdude-split-right
     - name: Build firmware for left hand
