@@ -16,13 +16,14 @@ jobs:
     - name: Update QMK Firmware
       run: |
         git submodule update --init
+        ./qmk_firmware/util/qmk_install.sh
         cd qmk_firmware && make git-submodule
     - name: Copy custom keymap definition
-      run: cp $(pwd)/crkbd3/keymap $(pwd)/qmk_firmware/keyboards/crkbd/keymaps/nobleascent && cd qmk_firmware
+      run: cp -rp $(pwd)/crkbd3/keymap $(pwd)/qmk_firmware/keyboards/crkbd/keymaps/nobleascent
     - name: Build firmware for right hand
-      run:  make crkbd:nobleascent:avrdude-split-right
+      run:  cd qmk_firmware && make crkbd:nobleascent:avrdude-split-right
     - name: Build firmware for left hand
-      run:  make crkbd:nobleascent:avrdude-split-left
+      run:  cd qmk_firmware && make crkbd:nobleascent:avrdude-split-left
       
     - name: Upload artifact
       uses: actions/upload-artifact@master
