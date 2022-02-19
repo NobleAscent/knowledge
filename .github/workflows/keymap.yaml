@@ -21,7 +21,9 @@ jobs:
 
     - name: Build custom firmware
       shell: bash
-      run: cd qmk_firmware && timeout 10s qmk compile -kb crkbd -km nobleascent || [[ $? -eq 124 ]]
+      run: |
+        cd qmk_firmware && timeout 10s qmk compile -kb crkbd -km nobleascent || [[ $? -eq 124 ]]
+        qmk compile -kb crkbd -km nobleascent
       
     - name: Upload artifact
       uses: actions/upload-artifact@v2

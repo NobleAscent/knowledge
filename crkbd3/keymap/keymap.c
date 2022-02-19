@@ -23,7 +23,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define GUI_A LGUI_T(KC_A)
 #define ALT_R LALT_T(KC_R)
 #define SFT_S LSFT_T(KC_S)
-#define CTL_T LCTL_T(KC_T)
 
 // Right-hand home row mods
 #define CTL_N RCTL_T(KC_N)
@@ -36,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_TAB,    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                         KC_J,    KC_L,    KC_U,    KC_Y,   KC_SCLN,  KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL,    GUI_A,   ALT_R,   SFT_S,   CTL_T,   KC_G,                         KC_M,    CTL_N,   SFT_E,   ALT_I,  GUI_O,    KC_QUOT,
+      KC_LCTL,    GUI_A,   ALT_R,   SFT_S, CTL_T(KC_T), KC_G,                       KC_M,    CTL_N,   SFT_E,   ALT_I,  GUI_O,    KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H, KC_COMM,  KC_DOT, KC_SLSH,  KC_ESC,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
