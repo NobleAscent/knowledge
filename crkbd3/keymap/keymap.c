@@ -18,27 +18,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 
-// https://precondition.github.io/home-row-mods
-// Left-hand home row mods
-#define GUI_A LGUI_T(KC_A)
-#define ALT_R LALT_T(KC_R)
-#define SFT_S LSFT_T(KC_S)
-#define T_CTL LCTL_T(KC_T)
-
-// Right-hand home row mods
-#define CTL_N RCTL_T(KC_N)
-#define SFT_E RSFT_T(KC_E)
-#define ALT_I LALT_T(KC_I)
-#define GUI_O RGUI_T(KC_O)
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_TAB,    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                         KC_J,    KC_L,    KC_U,    KC_Y,   KC_SCLN,  KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL,    GUI_A,   ALT_R,   SFT_S, LCTL_T(KC_T), KC_G,                       KC_M,    CTL_N,   SFT_E,   ALT_I,  GUI_O,    KC_QUOT,
+      KC_LSFT,    KC_A,    KC_R,    KC_S,    KC_T,    KC_G,                         KC_M,    KC_N,    KC_E,    KC_I,   KC_O,    KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H, KC_COMM,  KC_DOT, KC_SLSH,  KC_ESC,
+      KC_LCTL,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H, KC_COMM,  KC_DOT, KC_SLSH,  KC_ESC,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_LGUI, FN_MO13,  KC_SPC,     KC_ENT, FN_MO23, KC_RALT
                                       //`--------------------------'  `--------------------------'
@@ -96,7 +83,7 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 #define L_LOWER 2
 #define L_RAISE 4
 #define L_ADJUST 8
-#define GIT_STATUS "Counter: 1"
+#define GIT_STATUS "Counter: 2"
 
 void oled_render_layer_state(void) {
     oled_write_P(PSTR("Layer: "), false);
