@@ -17,7 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include QMK_KEYBOARD_H
-#include keycodes.h
+#include "keycodes.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
@@ -29,9 +29,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|      |--------+--------+--------+--------+--------+-------|
     | CTRL   |   Z    |   X    |   C    |   D    |   V    |      |    K   |   H    |  , <   |  . >   |  / ?   |   ESC |
   //|--------+--------+--------+--------+--------+--------|      |--------+--------+--------+--------+--------+-------|
-                                ,---------------------------,   ,-----------------------.
-                                | CTRL  | SHIFT | L2, SPACE |   |  ENT  |   L1  |  Alt  |
-                               /|-------+-------+-----------'   +-------+-------+-------|\
+                        ,---------------------------------,      ,--------------------------.
+                        |   CTRL  | SHIFT |  SHORT, SPACE |      |  ENT  | SYMBOLS  |  Alt  |
+                        |---------+-------+---------------'      +-------+----------+-------|\
   ),
 */
   [L_BASE] = LAYOUT_split_3x6_3(
@@ -40,26 +40,39 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LSFT,    KC_A,    KC_R,    KC_S,    KC_T,    KC_G,            KC_M,    KC_N,    KC_E,    KC_I,   KC_O,    KC_DQT,
     KC_LCTL,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,            KC_K,    KC_H, KC_COMM,  KC_DOT, KC_SLSH,  KC_ESC,
 
-                               KC_LCTL, KC_LSFT, SHORT_SPC,        KC_ENT, MO(1), KC_RALT
+                             KC_LCTL, KC_LSFT, SHORT_SPC,            KC_ENT, MO(1), KC_RALT
   ),
 
+
+
+/*
+ * SYMBOLS LAYER
+  //,-----------------------------------------------------.      ,----------------------------------------------------.
+    |  Tab   |        |        |        |        |        |      |        |        |        |        |        |  Bksp |
+  //|--------+--------+--------+--------+--------+--------|      |--------+--------+--------+--------+--------+-------|
+    |  SHIFT |        |        |   {    |    }   |        |      |        |   (    |   )    |   ; :  |        |       |
+  //|--------+--------+--------+--------+--------+--------|      |--------+--------+--------+--------+--------+-------|
+    |  CTRL  |        |        |        |        |        |      |        |        |        |        |        |       |
+  //|--------+--------+--------+--------+--------+--------|      |--------+--------+--------+--------+--------+-------|
+                                    ,-----------------------,  ,-----------------------.
+                                    |       | SHIFT | SPACE |  | ENTER | SHORT |       |
+                                   /|-------+-------+-------'  +-------+-------+-------|\
+  ),
+*/
   [L_SYMBOLS] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_TAB, XXXXXXX, XXXXXXX, KC_UP,   XXXXXXX,  XXXXXXX,                     XXXXXXX, KC_7,    KC_8,    KC_9, XXXXXXX, KC_BSPC,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX,                     KC_0,    KC_4,    KC_5,    KC_6, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,                     XXXXXXX, KC_1,    KC_2,    KC_3, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI, _______,  KC_SPC,     KC_ENT,  MO(3), KC_RALT
-                                      //`--------------------------'  `--------------------------'
+
+      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,           XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+      _______, XXXXXXX, XXXXXXX, KC_LCBR, KC_RCBR,  XXXXXXX,           XXXXXXX, KC_LPRN, KC_RPRN, KC_SCLN, XXXXXXX, XXXXXXX,
+      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,           XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+
+                                  XXXXXXX, _______,  KC_SPC,           _______,  MO(3), XXXXXXX
   ),
 
   [L_SHORTCUTS] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_TAB, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_MINS,  KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS,  KC_GRV,
+      _______, VSCODE, INTELLIJ, BROWSER,    TMUX, XXXXXXX,                      KC_MINS,  KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS,  KC_GRV,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, KC_TILD,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -90,7 +103,7 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
   return rotation;
 }
 
-#define GIT_STATUS "Counter: 5"
+#define GIT_STATUS "Counter: 7"
 
 void oled_render_layer_state(void) {
     oled_write_P(PSTR("Layer: "), false);
