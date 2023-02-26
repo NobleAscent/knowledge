@@ -1,5 +1,7 @@
 #pragma once
 
+#include "features/custom_shift_keys.h"
+
 enum layers {
     L_BASE,
     L_SYMBOLS,
@@ -13,3 +15,12 @@ enum layers {
 #define BROWSER LGUI(KC_1)
 #define INTELLIJ LGUI(KC_1)
 #define VSCODE LGUI(KC_1)
+
+#define COMMA KC_DOT
+#define DQUOTE KC_DOUBLE_QUOTE
+
+const custom_shift_key_t custom_shift_keys[] = {
+  {COMMA , KC_NO}, // Shift . is Nothing
+};
+uint8_t NUM_CUSTOM_SHIFT_KEYS =
+    sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
