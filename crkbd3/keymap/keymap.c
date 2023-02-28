@@ -55,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.      ,----------------------------------------------------.
     |  Tab   |        |        |        |        |        |      |        |        |        |        |        |  Bksp |
   //|--------+--------+--------+--------+--------+--------|      |--------+--------+--------+--------+--------+-------|
-    |  SHIFT |        |        |   {    |    }   |        |      |        |   (    |   )    |   ; :  |        |       |
+    |  SHIFT |        |        |   {    |    }   |        |      |  \ |   |   (    |   )    |   ;    |        |       |
   //|--------+--------+--------+--------+--------+--------|      |--------+--------+--------+--------+--------+-------|
     |  CTRL  |        |        |        |        |        |      |        |        |        |        |        |       |
   //|--------+--------+--------+--------+--------+--------|      |--------+--------+--------+--------+--------+-------|
@@ -67,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_SYMBOLS] = LAYOUT_split_3x6_3(
 
       _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,           XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
-      _______, XXXXXXX, XXXXXXX, KC_LCBR, KC_RCBR,  XXXXXXX,           XXXXXXX, KC_LPRN, KC_RPRN, KC_SCLN, XXXXXXX, XXXXXXX,
+      _______, XXXXXXX, XXXXXXX, KC_LCBR, KC_RCBR,  XXXXXXX,           KC_BSLS, KC_LPRN, KC_RPRN, SEMICOLON, XXXXXXX, XXXXXXX,
       _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,           XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
 
                                   XXXXXXX, _______,  KC_SPC,           _______,  MO(3), XXXXXXX
