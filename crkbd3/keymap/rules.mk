@@ -5,3 +5,5 @@ OLED_DRIVER     = SSD1306
 LTO_ENABLE      = yes
 
 SRC += features/custom_shift_keys.c
+
+CONSOLE_ENABLE = yes
