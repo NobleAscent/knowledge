@@ -11,10 +11,10 @@ enum layers {
 
 #define SHORT_SPC LT(2, KC_SPC)
 
-#define TMUX LGUI(KC_1)
-#define BROWSER LGUI(KC_1)
-#define INTELLIJ LGUI(KC_1)
-#define VSCODE LGUI(KC_1)
+#define TMUX LWIN(KC_1)
+#define BROWSER LWIN(KC_2)
+#define INTELLIJ LWIN(KC_3)
+#define VSCODE LWIN(KC_4)
 
 #define FSTOP KC_DOT
 #define DQUOTE KC_DOUBLE_QUOTE

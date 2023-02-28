@@ -60,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     |  CTRL  |        |        |        |        |        |      |        |        |        |        |        |       |
   //|--------+--------+--------+--------+--------+--------|      |--------+--------+--------+--------+--------+-------|
                                     ,-----------------------,  ,-----------------------.
-                                    |       | SHIFT | SPACE |  | ENTER | SHORT |       |
+                                    |       | SHIFT | SPACE |  | ENTER |       |       |
                                    /|-------+-------+-------'  +-------+-------+-------|\
   ),
 */
@@ -70,19 +70,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, XXXXXXX, XXXXXXX, KC_LCBR, KC_RCBR,  XXXXXXX,           KC_BSLS, KC_LPRN, KC_RPRN, SEMICOLON, XXXXXXX, XXXXXXX,
       _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,           XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
 
-                                  XXXXXXX, _______,  KC_SPC,           _______,  MO(3), XXXXXXX
+                                  XXXXXXX, _______,  KC_SPC,           _______,  _______, XXXXXXX
   ),
 
+
+/*
+ * SHORTCUTS LAYER
+  //,-----------------------------------------------------.      ,----------------------------------------------------.
+    |  Tab   |        |        |        |        |        |      |        |        |        |        |        |  Bksp |
+  //|--------+--------+--------+--------+--------+--------|      |--------+--------+--------+--------+--------+-------|
+    |  SHIFT | VSCODE |INTELLIJ| BROWSER|  TMUX  | CTRL+C |      |        |        |        |        |        |       |
+  //|--------+--------+--------+--------+--------+--------|      |--------+--------+--------+--------+--------+-------|
+    |  CTRL  |        |        |        |        | CTRL+V |      |        |        |        |        |        |       |
+  //|--------+--------+--------+--------+--------+--------|      |--------+--------+--------+--------+--------+-------|
+                                    ,-----------------------,  ,-----------------------.
+                                    |       | SHIFT | SPACE |  | ENTER |CTRL+B |       |
+                                   /|-------+-------+-------'  +-------+-------+-------|\
+  ),
+*/
   [L_SHORTCUTS] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_TAB, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, VSCODE, INTELLIJ, BROWSER,    TMUX, XXXXXXX,                      KC_MINS,  KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS,  KC_GRV,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, KC_TILD,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI,  MO(3),  KC_SPC,     KC_ENT, _______, KC_RALT
-                                      //`--------------------------'  `--------------------------'
+
+      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+      _______, VSCODE, INTELLIJ, BROWSER,    TMUX, C(KC_C),            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C(KC_V),            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+
+                                    XXXXXXX, XXXXXXX, _______,     XXXXXXX, XXXXXXX, XXXXXXX
   ),
 
   [L_RGB] = LAYOUT_split_3x6_3(
@@ -112,7 +124,7 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 
 void oled_render_layer_state(void) {
     oled_write_P(PSTR("Layer: "), false);
-    switch (layer_state) {
+    switch (get_highest_layer(layer_state)) {
         case L_BASE:
             oled_write_ln_P(PSTR("BASE"), false);
             oled_write_ln_P(PSTR(GIT_STATUS), false);
