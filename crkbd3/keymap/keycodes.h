@@ -16,17 +16,11 @@ enum layers {
 #define INTELLIJ LWIN(KC_3)
 #define VSCODE LWIN(KC_4)
 
-#define FSTOP KC_DOT
 #define DQUOTE KC_DOUBLE_QUOTE
 #define MINUS KC_MINUS
-#define SOLIDUS KC_SLSH
-#define SEMICOLON KC_SEMICOLON
 
 const custom_shift_key_t custom_shift_keys[] = {
-  {FSTOP, KC_NO}, // Shift . is Nothing
   {MINUS, KC_NO}, // Shift - is Nothing
-  {SOLIDUS, KC_NO}, // Shift / is Nothing
-  {SEMICOLON, KC_NO}, // Shift ; is Nothing
 };
 uint8_t NUM_CUSTOM_SHIFT_KEYS =
     sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
