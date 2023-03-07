@@ -53,11 +53,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
  * SYMBOLS LAYER
   //,-----------------------------------------------------.      ,----------------------------------------------------.
-    |  Tab   |        |        |        |    '   |        |      |        |   [    |   ]    |        |        |  Bksp |
+    |  Tab   |        |        |        |    '   |        |      |        |  [ 7   |  ] 8   |   9    |        |  Bksp |
   //|--------+--------+--------+--------+--------+--------|      |--------+--------+--------+--------+--------+-------|
-    |  SHIFT |        |   %    |   {    |    }   |   ,    |      |  \ |   |   (    |   )    |  ; :   |        |       |
+    |  SHIFT |        |   %    |   {    |    }   |   ,    |      |  \ 0   |  ( 4   |  ) 5   |   6    |        |       |
   //|--------+--------+--------+--------+--------+--------|      |--------+--------+--------+--------+--------+-------|
-    |  CTRL  |        |   !    |        |    "   |   +    |      |        |   =    |        |        |        |       |
+    |  CTRL  |        |   !    |        |    "   |   +    |      |        |  = 1   |    2   |   3    |        |       |
   //|--------+--------+--------+--------+--------+--------|      |--------+--------+--------+--------+--------+-------|
                                     ,-----------------------,  ,-----------------------.
                                     |       | SHIFT | SPACE |  | ENTER |       |       |
@@ -66,11 +66,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 */
   [L_SYMBOLS] = LAYOUT_split_3x6_3(
 
-    _______, XXXXXXX,   XXXXXXX, XXXXXXX, KC_QUOT,  XXXXXXX,           XXXXXXX, KC_LBRC, KC_RBRC, XXXXXXX, XXXXXXX, _______,
-    _______, XXXXXXX,KC_PERCENT, KC_LCBR, KC_RCBR, KC_COMMA,           KC_BSLS, KC_LPRN, KC_RPRN, KC_SCLN, XXXXXXX, XXXXXXX,
-    _______, XXXXXXX,   KC_EXLM, XXXXXXX,  DQUOTE,  KC_PPLS,           XXXXXXX, KC_PEQL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    _______, XXXXXXX,   XXXXXXX, XXXXXXX, KC_QUOT,  XXXXXXX,           XXXXXXX,  LBRC_7,  RBRC_8,  KC_9, XXXXXXX, _______,
+    _______, XXXXXXX,KC_PERCENT, KC_LCBR, KC_RCBR, KC_COMMA,            BSLS_0,  LPRN_4,  RPRN_5,  KC_6, XXXXXXX, XXXXXXX,
+    _______, XXXXXXX,   KC_EXLM, XXXXXXX,  DQUOTE,  KC_PPLS,           XXXXXXX, EQUAL_1,    KC_2,  KC_3, XXXXXXX, XXXXXXX,
 
-                                  XXXXXXX, _______,  KC_SPC,           _______,  _______, XXXXXXX
+                                  XXXXXXX, KC_LSFT,  KC_SPC,           KC_ENT,  _______, XXXXXXX
   ),
 
 
@@ -120,7 +120,7 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
   return rotation;
 }
 
-#define GIT_STATUS "Counter: 8"
+#define GIT_STATUS "Counter: 9"
 
 void oled_render_layer_state(void) {
     oled_write_P(PSTR("Layer: "), false);
