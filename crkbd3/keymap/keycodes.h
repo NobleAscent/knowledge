@@ -36,6 +36,12 @@ const custom_shift_key_t custom_shift_keys[] = {
   {RPRN_5, KC_5},
   {LBRC_7, KC_7},
   {RBRC_8, KC_8},
+
+  // Shifted numeric keys
+  {KC_INT2, KC_2},
+  {KC_INT3, KC_3},
+  {KC_INT6, KC_6},
+  {KC_INT9, KC_9},
 };
 
 uint8_t NUM_CUSTOM_SHIFT_KEYS =
