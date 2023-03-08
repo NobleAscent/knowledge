@@ -53,11 +53,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
  * SYMBOLS LAYER
   //,-----------------------------------------------------.      ,----------------------------------------------------.
-    |  Tab   |        |        |        |    '   |        |      |        |  [ 7   |  ] 8   |   9    |        |  Bksp |
+    |  Tab   |        |        |   _    |    '   |        |      |        |  [ 7   |  ] 8   |   9    |        |  Bksp |
   //|--------+--------+--------+--------+--------+--------|      |--------+--------+--------+--------+--------+-------|
     |  SHIFT |        |   %    |   {    |    }   |   ,    |      |  \ 0   |  ( 4   |  ) 5   |   6    |        |       |
   //|--------+--------+--------+--------+--------+--------|      |--------+--------+--------+--------+--------+-------|
-    |  CTRL  |        |   !    |        |    "   |   +    |      |        |  = 1   |    2   |   3    |        |       |
+    |  CTRL  |        |   !    |        |    "   |   +    |      |        |  = 1   |  @ 2   |   3    |        |       |
   //|--------+--------+--------+--------+--------+--------|      |--------+--------+--------+--------+--------+-------|
                                     ,-----------------------,  ,-----------------------.
                                     |       | SHIFT | SPACE |  | ENTER |       |       |
@@ -66,9 +66,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 */
   [L_SYMBOLS] = LAYOUT_split_3x6_3(
 
-    _______, XXXXXXX,   XXXXXXX, XXXXXXX, KC_QUOT,  XXXXXXX,           XXXXXXX,  LBRC_7,  RBRC_8,  KC_INT9, XXXXXXX, _______,
+    _______, XXXXXXX,   XXXXXXX, KC_UNDS, KC_QUOT,  XXXXXXX,           XXXXXXX,  LBRC_7,  RBRC_8,  KC_INT9, XXXXXXX, _______,
     _______, XXXXXXX,KC_PERCENT, KC_LCBR, KC_RCBR, KC_COMMA,            BSLS_0,  LPRN_4,  RPRN_5,  KC_INT6, XXXXXXX, XXXXXXX,
-    _______, XXXXXXX,   KC_EXLM, XXXXXXX,  DQUOTE,  KC_PPLS,           XXXXXXX, EQUAL_1, KC_INT2,  KC_INT3, XXXXXXX, XXXXXXX,
+    _______, XXXXXXX,   KC_EXLM, XXXXXXX,  DQUOTE,  KC_PPLS,           XXXXXXX, EQUAL_1,  EMAIL_2,  KC_INT3, XXXXXXX, XXXXXXX,
 
                                   XXXXXXX, KC_LSFT,  KC_SPC,           KC_ENT,  _______, XXXXXXX
   ),

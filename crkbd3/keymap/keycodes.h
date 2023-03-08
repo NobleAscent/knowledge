@@ -26,6 +26,7 @@ enum layers {
 #define RPRN_5 KC_RPRN
 #define LBRC_7 KC_LBRC
 #define RBRC_8 KC_RBRC
+#define EMAIL_2 KC_AT
 
 const custom_shift_key_t custom_shift_keys[] = {
   {MINUS, KC_NO}, // Shift - is Nothing
@@ -38,10 +39,10 @@ const custom_shift_key_t custom_shift_keys[] = {
   {RBRC_8, KC_8},
 
   // Shifted numeric keys
-  {KC_INT2, KC_2},
   {KC_INT3, KC_3},
   {KC_INT6, KC_6},
   {KC_INT9, KC_9},
+  {EMAIL_2, KC_2},
 };
 
 uint8_t NUM_CUSTOM_SHIFT_KEYS =
