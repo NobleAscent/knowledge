@@ -26,7 +26,7 @@ jobs:
         qmk c2json -kb crkbd -km nobleascent -o nobleascent.json $(pwd)/keyboards/crkbd/keymaps/nobleascent/keymap.c
       
     - name: Upload artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: Hex files
         path: qmk_firmware/*.hex
