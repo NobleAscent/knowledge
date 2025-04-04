@@ -5,3 +5,20 @@ ln -s <source> <destination>
 
 $ source: find ~ -type d 2>/dev/null | fzf --prompt="Select a directory: "
 $ destination: find ~ -type d 2>/dev/null | fzf --prompt="Select a directory: "
+
+# first 10 lines
+head -n 10
+
+# last 10 lines
+tail -n 10
+
+% to be used in combo with fzf search in a log file
+% fuzzy search a log file and find the line number matching your query
+% then you can start working from that line number
+# print from nth line
+tail -n +<line_number>
+
+% fzf
+
+# print only line number of selection
+nl | fzf --with-nth 2.. | awk '{print $1}'
