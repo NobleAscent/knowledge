@@ -1,0 +1,7 @@
+% jq
+
+# get 1st level unique keys from json input
+jq '. | keys' | sort | uniq
+
+# get timestamp and message
+jq '"\(.timestamp) --> \(.message)"'

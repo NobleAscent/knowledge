@@ -1,0 +1,7 @@
+% shell
+
+# symlink a file
+ln -s <source> <destination>
+
+$ source: find ~ -type d 2>/dev/null | fzf --prompt="Select a directory: "
+$ destination: find ~ -type d 2>/dev/null | fzf --prompt="Select a directory: "
