@@ -1,0 +1,8 @@
+% gopro %
+
+# download gopro footage by date range
+mmt import --use-gopro --range <from>,<to> --output <destination>
+
+$ from: date -d "last week" +"%d-%m-%Y"
+$ to: date +"%d-%m-%Y"
+$ destination: find ~ -type d 2>/dev/null | fzf --prompt="Select a directory: "
