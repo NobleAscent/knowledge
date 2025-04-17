@@ -1,0 +1,5 @@
+jira:
+  url: ${JIRA_URL}
+  email: ${JIRA_EMAIL}
+  apiToken: ${JIRA_CLASSIC_API_KEY}
+  projectKey: ${JIRA_PROJECT_KEY}
