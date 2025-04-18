@@ -1,0 +1,35 @@
+{{/*
+The proper way to do a boolean check
+*/}}
+{{- define "knowledge.conditional.using-eq" -}}
+{{ if eq (.Values.dev.conditional.keyWithOnlyAlphabets.enabled | toString) "true" }}
+  {{- print "keyWithOnlyAlphabets.enabled" -}}
+{{- end -}}
+
+{{/*
+We cannot do this: .Values.dev.conditional.keyWith-Dash
+It will result in an error such as bad character U+002D '-'
+*/}}
+
+{{- if eq (index .Values.dev.conditional "keyWith-Dash" "enabled" | toString) "true" }}
+  {{- print "keyWith-Dash.enabled" -}}
+{{- end -}}
+{{- end -}}
+
+{{/*
+We can trigger a false positive by using index function because a programmer might think it will return
+a value and the if statement will check that. However in this case the if statement only checks for the existance
+of said value.
+*/}}
+{{- define "knowledge.conditional.index-only" -}}
+{{ if .Values.dev.conditional.keyWithOnlyAlphabets.enabled }}
+  {{- print "keyWithOnlyAlphabets.enabled" -}}
+{{- end -}}
+
+{{- if index .Values.dev.conditional "keyWith-Dash" "enabled" }}
+  {{- print "keyWith-Dash.enabled" -}}
+{{- end -}}
+{{- end -}}
+
+{{- printf "{\"using-eq\":\"%s\"}" (include "knowledge.conditional.using-eq" .) }}
+{{ printf "{\"index-only\":\"%s\"}" (include "knowledge.conditional.index-only" .) -}}

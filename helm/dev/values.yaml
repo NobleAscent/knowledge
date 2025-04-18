@@ -1,0 +1,9 @@
+dev:
+
+  #    Try the values: true, false, apples
+  conditional:
+    keyWithOnlyAlphabets:
+      enabled: false
+
+    keyWith-Dash:
+      enabled: true
