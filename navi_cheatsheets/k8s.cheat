@@ -1,0 +1,6 @@
+% k8s
+
+# get list of images in a deployment
+kubectl get deployment <deployment-name> -o json | jq -r '.spec.template.spec.initContainers[]?, .spec.template.spec.containers[]? | "\(.name): \(.image)"'
+
+$ deployment-name: kubectl get deployments --no-headers | awk '{print $1}' | fzf --prompt="Select a deployment:"
